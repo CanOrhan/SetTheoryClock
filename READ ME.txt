@@ -1,0 +1,34 @@
+Thank you for the opportunity to apply for this position.
+
+To run the application:
+java -jar ./out/artifacts/SetTheoryClock/SetTheoryClock.jar 21:12 and 12 seconds
+
+
+=Design=
+I've chosen the design that I have to allow for components to be mocked. It would mean that anything that will depend on
+them can still be tested without a concrete implementation of a component. For example, if something depended on the
+ISetTheoryClock, it could be provided a mock implementation that allows for true _unit_ testing.
+
+
+=Assumptions=
+I've assumed that each row in the set theory clock will stay the same and that the entire thing is one single view
+instead of a view composed of other views.
+
+I've also assumed that the input to the program is like this:
+{"This", "is", "my", "input"}
+instead of:
+{"This is my input"}
+
+I have also assumed that InputDateAdapter will never get a null value since it should be used in conjunction with
+DateInputValidator.
+
+
+=Implementation=
+I've decided to use the java.util.Date class as a model for the time inside SetTheoryClockView. I've made sure that each
+component's API is minimal and conceals it's inner workings. Since Date's getters for it's time units are deprecated,
+I've chosen to use the Calendar class.
+
+
+=Tests=
+I've tested every class except Main to make sure that valid and invalid inputs are processed properly and that the
+correct output is produced.
